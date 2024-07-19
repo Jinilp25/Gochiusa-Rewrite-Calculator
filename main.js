@@ -7,6 +7,7 @@ function addButtonsToCalc() {
         const calcRow = document.createElement('div');
         for (let j = 0; j < 4; j++) {
             const btn = document.createElement('button');
+            btn.classList.add("calcBtn");
             btn.textContent = calcButtons[0];
             calcButtons.shift();
             calcRow.appendChild(btn);
@@ -96,6 +97,18 @@ function opperation(num1, num2, type) {
     : undefined;
 }
 
+function rewrite() {
+    const rewriteBtn = document.querySelector("#mainLogo");
+    rewriteBtn.addEventListener("click", () => {
+        document.body.style.backgroundImage = "url('img/rewriteBG.png')";
+        document.querySelector("#mainLogo").remove();
+        document.querySelector(".calc").style.backgroundImage = "url('img/rewriteCalc.png')";
+        document.querySelector(".musicTime").style.backgroundImage = "url('img/rewriteCalc.png')";
+        document.querySelector("#bgm1").src = "bgm/RewriteOP.mp3";
+        document.title = "Rewrite Calculator!";
+    })
+}
 
-addButtonsToCalc()
+addButtonsToCalc();
 buttonFunction();
+rewrite();
